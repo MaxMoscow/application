@@ -11,10 +11,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
               chdir   ( '..'     );
-    $Loader = GetEnv  ( 'LOADER' );
     $Config = GetEnv  ( 'CONFIG' );
-              require ( $Loader  );
+    $Loader = GetEnv  ( 'LOADER' );
     $Config = require ( $Config  );
+              require ( $Loader  );
     try   {
           $Application =  Zend\Mvc\Application::init ( $Config );
           $Application -> run();
