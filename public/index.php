@@ -22,6 +22,7 @@
           }
     catch ( Exception $e )
           {
-          $Config['DEBUG'] && print $e->getMessage();
+          $Message = $e->getMessage();
+          $Config['DEBUG'] && print $Message;
           exit ( -1 );
           };
