@@ -1,0 +1,10 @@
+<?php
+
+    print '<!-- START Zend Developer Toolbar Style -->' . "\n" . '<style type="text/css" media="all">' . "\n";
+    include ( __DIR__ . '/toolbar.css' );
+    if  ( $this->position === 'top' )
+        print '#zend-developer-toolbar     { top:0; bottom:auto; border-top:0; border-bottom:1px solid #111; }'
+            . '.zdt-toolbar-detail         { top:39px; bottom:auto; }'
+            . '.zdt-toolbar-detail:before,'
+            . '.zdt-toolbar-detail:after   { left:14px; top:-10px; bottom:auto; border-top:0; border-bottom:10px solid #68B604; }';
+    print '</style>' . "\n" . '<!-- END Zend Developer Toolbar Style -->';

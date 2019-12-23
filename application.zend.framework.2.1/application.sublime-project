@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"name": "application",
+    "build_systems":
+    [
+        {
+            "name": "PHP",
+            "cmd": ["php", "$file"]
+        }
+    ]
+
+}
