@@ -4,25 +4,27 @@
 //                                                                            //
 //  @Version: 2.0                                                             //
 //  @Author:  ruakum3                                                         //
-//  @Package: apache                                                          //
+//  @Package: BlackBox                                                        //
+//  @Server:  s-msk-onyx-ss27                                                 //
+//  @User:    apache                                                          //
 //  @Purpose: main application file                                           //
-//  @Usage:                                                                   //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 //
-              chdir   ( '..'     );
-    $Config = GetEnv  ( 'CONFIG' );
-    $Loader = GetEnv  ( 'LOADER' );
-    $Config = require ( $Config  );
-              require ( $Loader  );
+                       ChDir  ( '..'       );
+    $DEBUG   =         GetEnv ( 'DEBUG'    );
+    $Section =         GetEnv ( 'HOSTNAME' );
+    $Config  = require GetEnv ( 'CONFIG'   );
+    $Loader  = require GetEnv ( 'LOADER'   );
     try   {
-          $Application =  Zend\Mvc\Application::init ( $Config );
-          $Application -> run();
-          exit ( 0 );
+//        $Application =     Zend\Mvc\Application::init ( $Config );
+          $Application = new Zend_Application ( $Section, $Config );
+          Method_Exists($Application,'bootstrap') && $Application->bootstrap();
+          $Application->run();
           }
-    catch ( Exception $e )
+    catch ( Exception $Error )
           {
-          $Message = $e->getMessage();
-          $Config['DEBUG'] && print $Message;
-          exit ( -1 );
+          $Message = pReg_Replace ( '/\n/', '<br>', $Error->getMessage() );
+          $DEBUG  && print $Message;
           };
+    exit;

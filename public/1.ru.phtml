@@ -1,0 +1,75 @@
+<?php
+//
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//  @Author:  ruakum3                                                         //
+//  @Package: BlackBox                                                        //
+//  @Server:  s-msk-onyx-ss27                                                 //
+//  @User:    apache                                                          //
+//  @Purpose: View template '1' for 'ru' language                             //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+//
+//  $Config = Zend_Registry::isRegistered('Config') ? Zend_Registry::get('Config') : false;
+    $this->headScript()->appendFile     ( '/js/jquery.min.js',               'text/javascript' );
+    $this->headScript()->appendFile     ( '/js/jquery-ui.min.js',            'text/javascript' );
+    $this->headScript()->appendFile     ( '/js/html5shiv.js',                'text/javascript' );
+    $this->headScript()->appendFile     ( '/js/'  . $this->template . '.js', 'text/javascript' );
+    $this->headLink()->appendStylesheet ( '/css/' . $this->template . '.css' );
+    $this->headLink()->appendStylesheet ( '/css/themes/base/jquery-ui.css'   );
+    print $this->doctype()    . "\n";
+    print '<html lang="ru">'  . "\n"
+        . '<head>'            . "\n";
+    print $this->headTitle()  . "\n";
+    print $this->headMeta()   . "\n";
+    print $this->headScript() . "\n";
+    print $this->headLink()   . "\n";
+    print '<script type="text/javascript">' . $this->menu . '</script>' . "\n"
+        . "</head>"           . "\n";
+?>
+<body>
+<div      id="main_wrapper">
+ <div     id="wrapper">
+
+  <div    id="header">
+   <div   class="border">
+    <div  id="logo"><a href="https://sc.raiffeisen.ru/"><img src="/images/logo_ru.gif" width="205" height="45" alt="РайффайзенБанк"></a></div>
+    <div  id="authority"><?php $this->login && print $this->login; ?></div>
+    <div  id="title">    <?php $this->name  && print $this->name;
+                                               print '<br>';
+                               $this->title && print $this->title; ?></div>
+   </div>
+  </div>
+
+  <div class="wrap_top">
+   <table>
+    <tr>
+     <td class="hHead">
+      <form id="hMenu"><script type="text/javascript">hMenuDraw(Menu,true);</script></form>
+     </td>
+     <td>&nbsp;</td>
+     <td>
+      <div id="pager"></div><div id="filter"></div>
+     </td>
+    </tr>
+   </table>
+  </div>
+
+  <div  class="wrap">
+   <div id="content">
+    <?php print $this->layout()->content; ?>
+   </div>
+   <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <div class="space"></div>
+ </div>
+
+ <div  id="footer"><?php $this->message && print '<div id="message">' . $this->message . '</div>'; ?>
+  <div id="department">Управление экономической безопасности</div>
+  <div id="copyright">&copy; АО &laquo;Райффайзенбанк&raquo; 2016</div>
+ </div>
+</div>
+
+</body>
+</html>

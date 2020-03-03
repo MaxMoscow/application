@@ -1,0 +1,23 @@
+<?php
+//
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//  @Author:  ruakum3                                                         //
+//  @Package: BlackBox                                                        //
+//  @Server:  s-msk-onyx-ss27                                                 //
+//  @User:    apache                                                          //
+//  @Purpose: index view layout                                               //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+//
+    $db     = Zend_Registry::get ( 'db'     );
+    $Config = Zend_Registry::get ( 'Config' );
+    if  ( $Config['mode'] == 0 || $db == null     )
+        {
+        $Message = require 'config/message.config.php';
+        print $Message;
+        }
+    else
+        {
+        if  ( $Config['debug'] && isset($this->error) ) print '<br><p class="error">' . $this->error . '</p>';
+        }

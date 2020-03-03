@@ -1,0 +1,60 @@
+<?php
+//
+////////////////////////////////////////////////////////////////////////////////
+//                                                                             $
+//  $Id                                                                        $
+//  $Author:  ruakum3                                                          $
+//  $Package: SecurityCheck                                                    $
+//  $Server:  localhost, Development version                                   $
+//  $User:    apache                                                           $
+//  $Purpose: View template '3' for 'ru' language                              $
+//                                                                             $
+//  $Log                                                                       $
+//                                                                             $
+////////////////////////////////////////////////////////////////////////////////
+//
+
+  $Config = Zend_Registry::get('Config');
+  $this->headScript()->appendFile     ( '/js/jquery.js',                     'text/javascript' );
+  $this->headScript()->appendFile     ( '/js/'  . $this->template   . '.js', 'text/javascript' );
+  $this->headLink()->appendStylesheet ( '/css/' . $this->template   . '.css' );
+  //   ->headLink()->appendStylesheet ( '/css/' . $this->controller . '.css' );
+
+  print $this->doctype() . "\n";
+
+  print '<html>
+           <head>';
+             print $this->headTitle()  . "\n";
+             print $this->headMeta()   . "\n";
+             print $this->headScript() . "\n";
+             print $this->headLink()   . "\n";
+             print '<script>' . $this->Menu . '</script>';
+    print '</head>
+           <body>
+             <div id="wrapper">';
+               print $this->render('header.phtml');
+
+        print '<div class="wrap">';
+          print  '<div id="top_menu">
+                   <table cellspacing="0" cellpadding="0" width="100%" height="100%">
+                     <tr>
+                       <td class="hHead">
+                         <form id="hTopMenu"><script>hMenuDraw(Menu,true);</script></form>
+                       </td>';
+              print '</tr>
+                   </table>
+                 </div>
+               </div>';
+
+            print '<div class="wrap">';
+            print '<div id="main_left">';
+            print $this->layout()->content;
+            print '</div>
+                 </div>
+               <div id="clear"></div>
+               <div id="space"></div>
+             </div>';
+
+    print $this->render('footer.phtml');
+    print '</body>
+         </html>';

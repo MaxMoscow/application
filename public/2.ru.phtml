@@ -1,0 +1,61 @@
+<?php
+//
+////////////////////////////////////////////////////////////////////////////////
+//                                                                             $
+//  $Id                                                                        $
+//  $Author:  ruakum3                                                          $
+//  $Package: SecurityCheck                                                    $
+//  $Server:  s-msk-onyx-ss102                                                 $
+//  $User:    apache                                                           $
+//  $Purpose: View template '2' for 'ru' language                              $
+//                                                                             $
+//  $Log                                                                       $
+//                                                                             $
+////////////////////////////////////////////////////////////////////////////////
+//
+//  $Config = Zend_Registry::isRegistered('Config') ? Zend_Registry::get('Config') : false;
+    $this->headScript()->appendFile     ( '/js/jquery.js',                     'text/javascript' );
+    $this->headScript()->appendFile     ( '/js/jquery.datePicker.js',          'text/javascript' );
+    $this->headScript()->appendFile     ( '/js/'  . $this->template   . '.js', 'text/javascript' );
+    $this->headLink()->appendStylesheet ( '/css/' . $this->template   . '.css'                   );
+    $this->headLink()->appendStylesheet ( '/css/datePicker.css'                                  );
+    if  ( isset($this->css) && $this->css ) $this->headLink()->appendStylesheet ( $this->css     );
+    print $this->doctype()    . "\n";
+?>
+<html>
+<head>
+<?php
+    print $this->headTitle()  . "\n";
+    print $this->headMeta()   . "\n";
+    print $this->headScript() . "\n";
+    print $this->headLink()   . "\n";
+    print '<script>' . $this->menu . '</script>' . "\n";
+?>
+</head>
+
+<body>
+  <div id="main_wrapper">
+    <div id="wrapper">
+      <?php print $this->render('header.phtml'); ?>
+      <div class="wrap_top">
+        <div id="top_menu">
+          <?php /*if  ( $this->params['controller'] == 'inc' && $this->params['action'] == 'index' ) print '<div><input type="button" id="filter" value="Фильтр" onclick="ShowHide(\'filter_form\');"></input></div>';*/ ?>
+          <?php if  ( $this->params['action'] == 'index' ) print '<div><input type="button" id="filter_main" value="Фильтр" onclick="ShowHide(\'filter_form\');"></input></div>'; ?>
+        </div>
+      </div>
+      <div class="wrap">
+        <div id="left_menu">
+          <div id="vMenu"><script>vMenuDraw(Menu);</script></div>
+        </div>
+        <div id="content">
+          <?php print $this->layout()->content; ?>
+        </div>
+<!--         <div class="clear"></div> -->
+      </div>
+      <div class="clear"></div>
+      <div class="space"></div>
+    </div>
+    <?php print $this->render('footer.phtml'); ?>
+  </div>
+</body>
+</html>

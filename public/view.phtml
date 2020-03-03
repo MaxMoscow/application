@@ -1,0 +1,191 @@
+<?php
+//
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//  @Author:  ruakum3                                                         //
+//  @Package: BlackBox                                                        //
+//  @Server:  s-msk-onyx-ss27                                                 //
+//  @User:    apache                                                          //
+//  @Purpose: index view layout                                               //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+//
+    $ocrm = $this->lead->ocrm;
+//  var_dump ( $this->lead  );
+?>
+<style>
+.enable  { background:#FFFFFF; border:1px solid #606060; }
+.disable { background:#E0E0E0; border:1px solid #606060; }
+.ocrm    { background:#FFFFFF; }
+.ocrm th { border:1px solid #B0B0B0; font:20px arial; }
+.ocrm td { font:12px arial; }
+</style>
+<table class="ocrm">
+ <tr><td colspan=2 class="header">№ <font size="5"><?php print $ocrm->ID; ?></font></td></tr>
+ <th colspan=2 class="left">Наименование клиента</th>
+ <tr>
+  <td>
+   <table>
+    <tr>
+     <td class="right">Полное наименование<br>организации (rus)</td>
+     <td class="disable" colspan=3><?php print $ocrm->FULLCOMPANYNAME_RU; ?></td>
+    </tr>
+    <tr>
+        <td class="right">Сотрудники банка</td>
+        <td class="disable"><?php print $ocrm->INITIATOR; ?></td>
+        <td class="right">Номера во внешних системах</td>
+        <td class="center disable"><b><?php print $ocrm->ID_OCRM; ?></b></td>
+       </tr>
+       <tr>
+        <td class="right">Тип клиента</td>
+        <td class="disable"><?php print $ocrm->CUSTOMERTYPE; ?></td>
+        <td class="right">ИНН</td>
+        <td class="disable"><?php print $ocrm->INN; ?></td>
+       </tr>
+       <tr>
+        <td class="right">Основное отделение клиента</td>
+        <td class="disable"></td>
+        <td class="right">КПП (по месту нахождения)</td>
+        <td class="disable"><?php print $ocrm->KPP; ?></td>
+       </tr>
+       <tr>
+        <td></td>
+        <td></td>
+        <td class="right">ОГРН</td>
+        <td class="disable"><?php print $ocrm->OGRN; ?></td>
+    </tr>
+   </table>
+  </td>
+  <td valign=top>
+   <table>
+    <tr>
+     <td class="right">Тип бизнес-сегмента</td>
+     <td class="disable"><?php print $ocrm->SEGMENTTYPE; ?></td>
+    </tr>
+    <tr>
+     <td class="right">Бизнес-сегмент</td>
+     <td class="disable"><?php print $ocrm->SEGMENT; ?></td>
+    </tr>
+    <tr>
+     <td class="right">Юридический статус</td>
+     <td class="disable"><?php print $ocrm->LEGALSTATUS; ?></td>
+    </tr>
+    <tr>
+     <td class="right">Номер GCC</td>
+     <td class="disable"></td>
+    </tr>
+    <tr>
+     <td class="right">Наименование GCC</td>
+     <td class="disable"></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <th colspan=2 class="left">Контактные лица</th>
+ <tr>
+  <td colspan=2>
+   <table border="1">
+    <tr>
+     <td class="enable center" width="100px">Фамилия</td>
+     <td class="enable center" width="100px">Имя</td>
+     <td class="enable center" width="100px">Отчество</td>
+     <td class="enable center">Дата рождения</td>
+     <td class="enable center">Место рождения</td>
+     <td class="enable center">Документ</td>
+     <td class="enable center">Серия, номер</td>
+     <td class="enable center">Выдан</td>
+     <td class="enable center">Код подразделения</td>
+    </tr>
+<?php foreach ( $this->lead->persons as $person )
+              {
+//            $DOC_TYPE = ( $person['TYPE_'] == '0' ) ? 'Паспорт' : '-';
+              $DOC_TYPE = ( $person['TYPE_'] == 1   ) ? 'Паспорт' : '-';
+              $PERSON_TYPE = $person['TYPE_STR1']     ? ' title="' . $person['TYPE_STR1'] . '">' : '>';
+              print '<tr>';
+              print '<td class="enable"' . $PERSON_TYPE  . $person['SURNAME']    . '</td>';
+              print '<td class="enable"' . $PERSON_TYPE  . $person['NAME']       . '</td>';
+              print '<td class="enable"' . $PERSON_TYPE  . $person['PNAME']      . '</td>';
+              print '<td class="disable center">'        . $person['BDATE']      . '</td>';
+              print '<td class="disable">'               . $person['BPLACE']     . '</td>';
+              print '<td class="disable center" title="' . $person['TYPE_STR2']  . '">' . $DOC_TYPE             . '</td>';
+              print '<td class="disable">'               . $person['SER']        . ', ' . $person['NUM']        . '</td>';
+              print '<td class="disable" title="'        . $person['ISSUE']      . '">' . $person['D1']         . '</td>';
+              print '<td class="disable center" title="' . $person['ISSUE']      . '">' . $person['ISSUE_CODE'] . '</td>';
+              print '</tr>';
+              }
+?> </table>
+  </td>
+ </tr>
+ <th colspan=2 class="left">Адреса</th>
+ <tr>
+  <td colspan=2>
+   <table width="100%" border="1">
+    <tr>
+     <td class="enable center" width="120px">Тип</td>
+     <td class="enable center" width="50px">Почтовый<br>индекс</td>
+     <td class="enable center" width="50px">Страна</td>
+     <td class="enable center">Область, Населенный пункт</td>
+     <td class="enable center">Улица</td>
+     <td class="enable center">Дом</td>
+     <td class="enable center" width="50px">Корпус<br>Строение</td>
+     <td class="enable center" width="50px">Квартира<br>Офис</td>
+    </tr>
+<?php foreach ( $this->lead->addresses as $address )
+              {
+              print '<tr>';
+              print '<td class="disable center" title="' . $address['ORIGINAL'] . '">' . $address['TYPE_STR'] . '</td>';
+              print '<td class="disable center">' . $address['ZIP']       . '</td>';
+              print '<td class="disable center">' . $address['COUNTRY']   . '</td>';
+              print '<td class="disable">'        . $address['REGION'];
+              if  ( $address['REGION']   && $address['CITY'] ) print ', ';
+              print $address['CITY'];
+              if  ( $address['LOCALITY'] && $address['CITY'] ) print ', ';
+              print                                 $address['LOCALITY']  . '</td>';
+              print '<td class="disable">'        . $address['STREET']    . '</td>';
+              print '<td class="disable center">' . $address['HOUSE']     . '</td>';
+              print '<td class="disable center">' . $address['BUILDING']  . '</td>';
+              print '<td class="disable center">' . $address['APARTMENT'] . '</td>';
+              print '</tr>';
+              }
+?> </table>
+  </td>
+ </tr>
+ <th colspan=2 class="left">Телефоны</th>
+ <tr>
+  <td colspan=2>
+   <table border="1">
+    <tr>
+     <td class="center" width="120px">Тип</td>
+     <td class="center" width="200px">Номер</td>
+    </tr>
+<?php foreach ( $this->lead->phones as $phone )
+              {
+              if      ( strlen($phone['PHONE']) == 10 ) $Number = '(' . substr($phone['PHONE'],0,3) . ') ' . substr($phone['PHONE'],3,3) . '-' . substr($phone['PHONE'],6,2) . '-' . substr($phone['PHONE'],8,2);
+              else if ( strlen($phone['PHONE']) ==  7 ) $Number =                                            substr($phone['PHONE'],0,3) . '-' . substr($phone['PHONE'],3,2) . '-' . substr($phone['PHONE'],5,2);
+              else                                      $Number = $phone['PHONE'];
+              print '<tr>';
+              print '<td class="right">'   . $phone['TYPE_STR'] . '</td>';
+              print '<td class="disable">' . $Number            . '</td>';
+              print '</tr>';
+              }
+?> </table>
+  </td>
+ </tr>
+ <th colspan=2 class="left">Комментарии</th>
+ <tr>
+  <td colspan=2>
+   <table width="100%">
+    <tr>
+     <td>Комментарий:</td>
+     <td class="disable"><?php print $ocrm->COMMENT_; ?></td>
+    </tr>
+    <tr>
+     <td>ОКВЭД коды:</td>
+     <td class="disable"><?php print $ocrm->OKVEDS; ?></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+ </tr>
+ </table>
