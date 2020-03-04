@@ -1,0 +1,118 @@
+/*
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//  @Author:  ruakum3                                                         //
+//  @Package: BlackBox                                                        //
+//  @Server:  s-msk-onyx-ss27                                                 //
+//  @User:    apache                                                          //
+//  @Purpose: css styles for template '1' & 'ru' language                     //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+*/
+html, body               { width:100%; height:100%; font-family:arial; padding:0px; margin:0px; }
+body                     { position:relative; }
+img                      { border:0px; }
+
+#header                  { margin:0px;  padding:5px; }
+#header .border          { height:auto; border:1px solid #B0B0B0; border-radius:10px 10px 0 0; behavior:url('/css/PIE.htc'); }
+#main_wrapper            { position:absolute; min-width:100%; height:100%; }
+#logo                    { margin:20px; float:left;  }
+#title                   { height:60px; color:#808080; font:bold 24px arial; padding:30px 0px 0px 150px; text-align:center; }
+.wrap_top                { margin:0px 5px 5px 5px; background:#B0B0B0; }
+.wrap_top table          { width:100%; }
+#wrapper                 { min-height:100%; margin:0px 25px; padding:0px; clear:none; }
+#content                 { min-height:400px; height:auto; border:1px solid #B0B0B0; margin:0px 0px 0px 0px; } /* background:#E0E0E0; */
+#top_menu                { width:100%; height:24px; }
+#left_menu               { width:200px; background:#FFFFB0; font-size:14px; border:1px solid #B0B0B0; float:left; display:none; }
+.wrap                    { padding:0px 5px; }
+
+.datePicker              { cursor:pointer; }
+.ui-datepicker-trigger   { cursor:pointer; }
+#ui-datepicker-div
+.ui-state-highlight      { background-color:#808080; color:#FFFFFF; }
+.ui-draggable,
+.ui-droppable            { background-position:top; }
+.ui-datepicker           { font: 9pt Arial, sans-serif; }
+
+#authority               { width:300px; height:75px; background:#E0E0E0; margin:4px; padding:7px 5px 0px 0px; float:right; text-align:center;
+                           box-shadow: inset 0 0 5px; border-radius:10px; behavior:url('/css/PIE.htc');
+                         }
+.space                   { height:25px; }
+.clear                   { height:0px; clear:both; }
+.message                 { color:#FF0000; font-size:14px; padding:0px 10px; text-align:center; }
+#footer                  { height:16px; background:#E0E0E0; border:1px solid #B0B0B0; margin:-21px 30px 0px; white-space:nowrap; }
+#department              { padding:0px 10px; font-size:11px; float:left;  }
+#copyright               { padding:0px 10px; font-size:11px; float:right; }
+
+#Username-label,
+#Password-label          { width:50px;  margin:1px 10px; font-size:14px; float:left; }
+#Username,
+#Password                { width:220px; margin:1px 0px 2px; padding:0px; }
+#Login,
+#Logout                  { width:284px; margin:2px 10px; padding:0px; }
+#Login-label,
+#Logout-label,
+#LoginId                 { display:none; }
+#LoginId-label           { font-size:12px; text-align:center; margin:10px; }
+
+#vMenu                   { font-size:12px; padding:5px 5px 5px 10px; }
+.vLine                   { border:1px inset #800000; margin:5px 0px; }
+.vL0                     { color:#404080; font-weight:bold; }
+.vL1                     { font-weight:normal; text-decoration:none; padding:0px 0px 0px 10px; }
+.vL1:hover               { color:#FFFFFF; background-color:#B0B0B0; }
+.vLa                     { color:#808080; text-decoration:none; cursor:pointer; }
+
+#hMenu                   { font-size:14px; }
+.hL0                     { padding:2px 3px; margin:0px 2px; display:block; float:left; position:relative; color:#000000; cursor:pointer; z-index:5; }
+.hL0a                    { padding:0px 5px 2px 5px;  color:#FFFFFF; text-decoration:none; }
+.hL0h                    { background-color:#404040; color:#A0A0A0; font-style:italic; padding:0px 5px 2px 2px; }
+.hL0:hover               { background-color:#404040; color:#FFFFFF; }
+.hL0:hover  .hB1         { display:block; }
+.hL1,       .hL12        { font-size:14px; background-color:#404040; margin:0px; padding:3px 15px 3px 5px; white-space:nowrap; z-index:5; }
+.hL1a                    { color:#FFFFFF; text-decoration:none; }
+.hL1h                    { background-color:#404040; color:#808080; font-style:italic; padding:0px 10px 2px 2px; white-space:nowrap; }
+.hL1:hover,
+.hL12:hover              { background-color:#808080; }
+.hL1:hover  .hL1a,
+.hL12:hover .hL1a        { color:#FFFFFF; }
+.hL12                    { background:url('/images/arrow.png') no-repeat right #B0B0B0; }
+.hL12:hover              { background:url('/images/arrow.png') no-repeat right #808080; }
+.hB1                     { display:none; border:1px outset #FFFFFF; position:absolute; top:20px; left:0px; }
+.hB1 .hL12               { position:relative; }
+.hL2                     { background-color:#AAAAAA; padding:3px 5px 3px 2px; white-space:nowrap; z-index:5; }
+.hL2a                    { color:#000000; padding:0px 2px 2px; text-decoration:none; }
+.hL2h                    { background-color:#AAAAAA; color:#404040; font-style:italic; padding:0px 10px 2px 2px; }
+.hL2:hover               { background-color:#404040; }
+.hL2:hover  .hL2a        { color:#FFFFFF; }
+.hB2                     { display:none; border:1px outset #FFFFFF; position:absolute; left:100%; top:0px; }
+.hL12:hover .hB2         { display:block; }
+.hLine                   { border:1px inset #FFFFFF; }
+
+#list                    { width:100%; border:1px solid #B0B0B0; }
+#wait                    { width:0; height:64px; position:absolute; top:300px; background: url('/images/wait-2.gif') no-repeat center; }
+#filter                  { color:#000000; font-size:10px; float:right; background-color:#B0B0B0; }
+#filter-1                { width:100px; }
+#filter-2                { width:250px; text-align:left; }
+#filter-3                { background:#E0E0E0; margin:0 0 5px 0; padding:10px; box-shadow: inset 0 0 5px; border-radius:0 0 10px 10px; behavior:url('/css/PIE.htc'); display:none; }
+#pager                   { color:#000000; background-color:#B0B0B0; float:right; }
+#pager-2                 { width:100px; text-align:center; }
+
+        iframe           { display:none; }
+.upload                  { position:relative; z-index:0; }
+.upload div              { width:100%; background:#E0E0E0; text-align:center; cursor:pointer; box-shadow: inset 0 0 5px; border-radius:10px; }
+.upload input            { position:absolute;  visibility:hidden; }
+
+
+#content .header         { text-align:center; font:bold 12px arial; background:#B0B0B0; }
+#content .left           { text-align:left; white-space:nowrap; }
+#content .center         { text-align:center; }
+#content .right          { text-align:right;  }
+#content .even           { background:#F0F0F0; font:12px arial; }
+#content .odd            { background:#E0E0E0; font:12px arial; }
+#content .service        { color:#FFFFFF;     }
+#content #list           { border:1px solid #FFFFFF; }
+
+.ui-icon-seek-first ,
+.ui-icon-seek-prev  ,
+.ui-icon-seek-next  ,
+.ui-icon-seek-end        { cursor:pointer; }
